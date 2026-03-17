@@ -1,0 +1,311 @@
+/* ============================================================
+   Verum Cursos — Global Styles
+   Design: Prestige Academy Refinado
+   Paleta: #0D2B55 (azul marinho) + #C9A227 (dourado) + #F5F0E8 (creme)
+   Tipografia: Cormorant Garamond (títulos) + Raleway (corpo) + Inter (UI)
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Verum brand tokens */
+  --color-navy: oklch(0.22 0.07 250);
+  --color-navy-light: oklch(0.28 0.07 250);
+  --color-gold: oklch(0.72 0.14 75);
+  --color-gold-light: oklch(0.82 0.12 75);
+  --color-cream: oklch(0.97 0.015 80);
+  --color-cream-dark: oklch(0.93 0.02 80);
+}
+
+:root {
+  --radius: 0.5rem;
+  /* Navy blue as primary */
+  --primary: oklch(0.22 0.07 250);
+  --primary-foreground: oklch(0.98 0 0);
+  /* Gold as accent */
+  --accent: oklch(0.72 0.14 75);
+  --accent-foreground: oklch(0.15 0.04 250);
+  /* Cream background */
+  --background: oklch(0.98 0.008 80);
+  --foreground: oklch(0.18 0.04 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.04 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.04 250);
+  --secondary: oklch(0.95 0.012 80);
+  --secondary-foreground: oklch(0.25 0.05 250);
+  --muted: oklch(0.94 0.01 80);
+  --muted-foreground: oklch(0.52 0.03 250);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.015 80);
+  --input: oklch(0.88 0.015 80);
+  --ring: oklch(0.72 0.14 75);
+  --chart-1: oklch(0.22 0.07 250);
+  --chart-2: oklch(0.72 0.14 75);
+  --chart-3: oklch(0.35 0.08 250);
+  --chart-4: oklch(0.82 0.12 75);
+  --chart-5: oklch(0.48 0.1 250);
+  --sidebar: oklch(0.22 0.07 250);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.72 0.14 75);
+  --sidebar-primary-foreground: oklch(0.15 0.04 250);
+  --sidebar-accent: oklch(0.28 0.07 250);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.3 0.07 250);
+  --sidebar-ring: oklch(0.72 0.14 75);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+  h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Cormorant Garamond for headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  /* Verum custom components */
+  .verum-gold-line {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, oklch(0.72 0.14 75), transparent);
+  }
+
+  .verum-card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200;
+    border: 1px solid oklch(0.88 0.015 80);
+  }
+
+  .verum-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px oklch(0.22 0.07 250 / 0.15);
+    border-color: oklch(0.72 0.14 75 / 0.4);
+  }
+
+  .verum-btn-gold {
+    background: oklch(0.72 0.14 75);
+    color: oklch(0.15 0.04 250);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+  }
+
+  .verum-btn-gold:hover {
+    background: oklch(0.78 0.13 75);
+    box-shadow: 0 0 20px oklch(0.72 0.14 75 / 0.4);
+    transform: translateY(-1px);
+  }
+
+  .verum-btn-outline {
+    border: 2px solid oklch(0.72 0.14 75);
+    color: oklch(0.72 0.14 75);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-radius: 9999px;
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .verum-btn-outline:hover {
+    background: oklch(0.72 0.14 75);
+    color: oklch(0.15 0.04 250);
+  }
+
+  .verum-badge {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+  }
+
+  .verum-badge-gold {
+    background: oklch(0.72 0.14 75);
+    color: oklch(0.15 0.04 250);
+  }
+
+  .verum-badge-navy {
+    background: oklch(0.22 0.07 250);
+    color: oklch(0.98 0 0);
+  }
+
+  .verum-section-dark {
+    background: oklch(0.22 0.07 250);
+    color: oklch(0.98 0 0);
+  }
+
+  .verum-section-cream {
+    background: oklch(0.97 0.015 80);
+  }
+
+  .verum-section-white {
+    background: oklch(1 0 0);
+  }
+
+  .verum-star {
+    color: oklch(0.72 0.14 75);
+  }
+
+  /* Fade-in animation for sections */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .stagger-children.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0ms; }
+  .stagger-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 80ms; }
+  .stagger-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 160ms; }
+  .stagger-children.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 240ms; }
+  .stagger-children.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 320ms; }
+  .stagger-children.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 400ms; }
+
+  /* Scrollbar customization */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.94 0.01 80);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.72 0.14 75 / 0.5);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.72 0.14 75);
+  }
+}
