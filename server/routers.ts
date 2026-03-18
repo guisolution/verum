@@ -7,7 +7,6 @@ import { nanoid } from "nanoid";
 import * as db from "./db";
 
 export const appRouter = router({
-    // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
@@ -19,16 +18,6 @@ export const appRouter = router({
       } as const;
     }),
   }),
-
-  // TODO: add feature routers here, e.g.
-  // todo: router({
-  //   list: protectedProcedure.query(({ ctx }) =>
-  //     db.getUserTodos(ctx.user.id)
-  //   ),
-  // }),
-});
-
-export type AppRouter = typeof appRouter;
 
   // Admin routes for managing courses, blog, ebooks, and ads
   admin: router({
@@ -178,8 +167,3 @@ export type AppRouter = typeof appRouter;
         priority: z.number().optional(),
       })).mutation(({ input }) => {
         const { id, ...data } = input;
-        return db.updateAdvertisement(id, data);
-      }),
-      delete: adminProcedure.input(z.object({ id: z.string() })).mutation(({ input }) => db.deleteAdvertisement(input.id)),
-    }),
-  }),
