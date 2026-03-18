@@ -1,4 +1,4 @@
-import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, decimal, boolean, json } from "drizzle-orm/mysql-core";
+import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, decimal, boolean, json, datetime } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -96,8 +96,8 @@ export const advertisements = mysqlTable("advertisements", {
   linkUrl: text("linkUrl").notNull(),
   placement: mysqlEnum("placement", ["hero", "sidebar", "footer", "modal"]).notNull(),
   isActive: boolean("isActive").default(true),
-  startDate: timestamp("startDate"),
-  endDate: timestamp("endDate"),
+  startDate: datetime("startDate", { mode: "date" }),
+  endDate: datetime("endDate", { mode: "date" }),
   priority: int("priority").default(0),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),

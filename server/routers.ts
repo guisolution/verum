@@ -167,3 +167,11 @@ export const appRouter = router({
         priority: z.number().optional(),
       })).mutation(({ input }) => {
         const { id, ...data } = input;
+        return db.updateAdvertisement(id, data);
+      }),
+      delete: adminProcedure.input(z.object({ id: z.string() })).mutation(({ input }) => db.deleteAdvertisement(input.id)),
+    }),
+  }),
+});
+
+export type AppRouter = typeof appRouter;

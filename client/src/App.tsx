@@ -1,9 +1,3 @@
-// ============================================================
-// Verum Cursos — App Router
-// Design: Prestige Academy Refinado
-// Rotas: Home, Cursos, Curso Detalhe, Blog, Blog Post
-// ============================================================
-
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -15,8 +9,10 @@ import Cursos from "./pages/Cursos";
 import CursoDetalhe from "./pages/CursoDetalhe";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Login from "./pages/Login"; // <-- NOVA (Verifique se o ficheiro existe)
+import Admin from "./pages/Admin"; // <-- NOVA (Verifique se o ficheiro existe)
+
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -24,6 +20,11 @@ function Router() {
       <Route path="/curso/:id" component={CursoDetalhe} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:id" component={BlogPost} />
+      
+      {/* Novas Rotas */}
+      <Route path="/login" component={Login} /> 
+      <Route path="/admin" component={Admin} />
+
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
